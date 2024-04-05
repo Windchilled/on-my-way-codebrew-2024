@@ -25,9 +25,23 @@ def addIncident(location, x_coord, y_coord, post_time, desc, severity, emergency
     client.close()
 
 def getIncidents():
-    # Nothing here yet
-    print("hi")
+    
+    allIncidents = []
+    for eachIncident in collection.find({}, {"_id":0}): 
+        allIncidents.append(eachIncident)
+    #print(allIncidents)
+    return allIncidents
 
-def getIncidentDetails():
+
+def getIncidentDetails(_id):
+    incident = collection.find_one(_id)
+    print("the id" , _id)
+    print("the incident",incident)
+    #for x in collection.find(_id):
+    #    print("here i am", x)
+    for x in collection.find({"_id":_id},{"id" : 0}):
+        print(x)
+
+    return collection.find({"_id":_id},{"id" : 0})
     # Nothing here yet
-    print("hi 2")
+    
