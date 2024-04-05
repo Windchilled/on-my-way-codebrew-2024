@@ -19,5 +19,14 @@ def addIncident():
 
 @incident.route('/allIncidents', methods = ['POST','GET'])
 def retrieveIncidents():
-    result = getIncidents()
+    result = retrieveAllIncidents()
+    return jsonify(result)
+
+@incident.route('/incidentDetails', methods = ['POST','GET'])
+def retrieveincidentDetails():
+
+    _id = request.json
+
+    result = retrieveIncident(_id)
+
     return jsonify(result)
