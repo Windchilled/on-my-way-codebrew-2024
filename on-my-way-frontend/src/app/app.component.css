@@ -23,7 +23,7 @@
 .grid-container{
     display: grid;
     grid-template-areas: 
-    "logo search"
+    "search search"
     "details map"
     "report map"
     "footer footer";
@@ -37,4 +37,9 @@
 
 .red-icon {
     color: red;
+}
+
+.img{
+    width: 20%;
+    height: auto;
 }
