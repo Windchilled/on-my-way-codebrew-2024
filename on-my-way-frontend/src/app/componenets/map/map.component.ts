@@ -1,6 +1,6 @@
-import { environment } from '../../../environments/environment';
 import { Component, OnInit } from '@angular/core';
 import * as mapboxgl from 'mapbox-gl';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-map',
@@ -14,8 +14,8 @@ export class MapComponent implements OnInit {
   lat: number = -37.7983;
   lng: number = 144.9609;
   
-  sw_bound = new mapboxgl.LngLat(110.8909, -39.2695); //110.8909
-  ne_bound = new mapboxgl.LngLat(154.1289, -9.9139); //154.1289
+  sw_bound = new mapboxgl.LngLat(110.8909, -39.2695);
+  ne_bound = new mapboxgl.LngLat(154.1289, -9.9139); 
   bounds = new mapboxgl.LngLatBounds(this.sw_bound, this.ne_bound);
 
   ngOnInit() {
@@ -36,6 +36,6 @@ export class MapComponent implements OnInit {
             trackUserLocation: true,
             showUserHeading: true
         })
-    );
+      );
   }
 }
