@@ -5,7 +5,7 @@ import sys
 import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from controllers.incidentController import *
-from controllers.recieveIncidentController import *
+#from controllers.recieveIncidentController import *
 
 
 incident = Blueprint("incident",__name__)
