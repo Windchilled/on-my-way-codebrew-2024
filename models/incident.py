@@ -38,4 +38,6 @@ def getIncidentDetails(_id):
     incident = collection.find_one({"_id" : _id},{"_id" : 0})
     return incident
 
-    
+def deleteIncident(_id):
+    result = collection.delete_one({"_id" : _id})
+    return result

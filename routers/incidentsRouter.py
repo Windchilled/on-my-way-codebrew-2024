@@ -33,3 +33,14 @@ def retrieveincidentDetails():
     print(result)
 
     return jsonify(result)
+
+@incident.route('/resolveIncident', methods = ['POST','GET'])
+def resolve():
+
+    json_id = request.json
+    _id = ObjectId(json_id["_id"])
+
+    result = resolveIncident(_id)
+    print(result)
+
+    return jsonify(result)
