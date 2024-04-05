@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatIconModule } from "@angular/material/icon";
+import { Marker } from "../../../interfaces/marker";  
 
 
 @Component({
@@ -10,5 +11,5 @@ import { MatIconModule } from "@angular/material/icon";
   styleUrl: './marker.component.css'
 })
 export class MarkerComponent {
-
+  @Input() marker!: Marker;
 }
