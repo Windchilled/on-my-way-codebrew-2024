@@ -1,3 +1,4 @@
+import json
 from dateutil import parser
 
 import sys
@@ -6,8 +7,9 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from models.incident import *
 
 def runAddIncident(json_data):
-    print(json_data)
-    
+
+    json_dict = json.load(json_data)
+    print(json_dict)
     post_date = '2024-07-13T00:00:00.000Z'
     location_name = "Lincoln Square, Melbourne, VIC, Australia"
     x_coord = 6.314
