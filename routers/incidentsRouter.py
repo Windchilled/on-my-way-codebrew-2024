@@ -1,8 +1,11 @@
-from flask import Flask;
-from flask import Blueprint;
+from flask import Flask,request,jsonify
+from flask import Blueprint
+from controllers import test
 
 incident = Blueprint("incident",__name__)
 
-@incident.route('/add')
+@incident.route('/add', methods = ['POST','GET'])
 def addIncident():
-    return "added"
+    data = request.json
+    result = test.test(data)
+    return jsonify(result)
