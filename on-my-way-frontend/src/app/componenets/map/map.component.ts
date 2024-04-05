@@ -28,5 +28,14 @@ export class MapComponent implements OnInit {
         center: [this.lng, this.lat],
         maxBounds: this.bounds,
       });
+      this.map.addControl(
+        new mapboxgl.GeolocateControl({
+            positionOptions: {
+                enableHighAccuracy: true
+            },
+            trackUserLocation: true,
+            showUserHeading: true
+        })
+    );
   }
 }
