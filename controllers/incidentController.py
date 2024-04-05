@@ -1,6 +1,7 @@
 import json
 from dateutil import parser
 from flask import jsonify
+from datetime import datetime
 
 import sys
 import os
@@ -13,11 +14,13 @@ def runAddIncident(json_data):
             return jsonify({'error': "An incident field is missing"}), 500
         
     print(json_data['location'])
+    time_now = datetime.now()
+    dt_string = time_now.strftime("%d/%m/%Y %H:%M:%S")
 
     location_name = json_data['location']
     x_coord = json_data['x-coord']
     y_coord = json_data['y-coord']
-    post_time = parser.parse(json_data['date-time'])
+    post_time = dt_string
     desc = json_data['description']
     severity = json_data['severity']
     emergency_service = json_data['emergency-service']

@@ -22,12 +22,13 @@ def addIncident(location, x_coord, y_coord, post_time, desc, severity, emergency
     }
 
     collection.insert_one(new_incident)
-    client.close()
+    
 
 def getIncidents():
     
     allIncidents = []
-    for eachIncident in collection.find({}, {"_id":0}): 
+    for eachIncident in collection.find({}, {}): 
+        eachIncident['_id'] = str(eachIncident['_id'])
         allIncidents.append(eachIncident)
     #print(allIncidents)
     return allIncidents
