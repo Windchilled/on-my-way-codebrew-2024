@@ -6,5 +6,5 @@ def retrieveAllIncidents():
 
 def retrieveIncident(_id):
     IncidentDetails = getIncidentDetails(_id)
-    print(IncidentDetails)
-    return "IncidentDetails"
+    #print(IncidentDetails)
+    return IncidentDetails

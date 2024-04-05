@@ -34,14 +34,7 @@ def getIncidents():
 
 
 def getIncidentDetails(_id):
-    incident = collection.find_one(_id)
-    print("the id" , _id)
-    print("the incident",incident)
-    #for x in collection.find(_id):
-    #    print("here i am", x)
-    for x in collection.find({"_id":_id},{"id" : 0}):
-        print(x)
+    incident = collection.find_one({"_id" : _id},{"_id" : 0})
+    return incident
 
-    return collection.find({"_id":_id},{"id" : 0})
-    # Nothing here yet
     
