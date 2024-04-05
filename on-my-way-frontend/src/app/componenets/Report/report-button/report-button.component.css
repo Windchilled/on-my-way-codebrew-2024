@@ -1,5 +1,5 @@
 .container {
-    background-color: #156082;
+    background-color: #e21717;
     color: #fff;
     display: flex;
     justify-content: center;
@@ -7,4 +7,9 @@
     height: 100%;
     width: 100%;
     padding: 1rem;
+}
+
+.container:hover{
+    cursor: pointer;
+    background-color: #971212;
 }

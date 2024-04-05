@@ -92,7 +92,7 @@ export class IncidentsService {
     return this.markers;
   }
 
-  getIncidentDetails(id:string): DetailInformation{
+  getIncidentDetails(id:string): DetailInformation {
     return this.detail
   }
 }
