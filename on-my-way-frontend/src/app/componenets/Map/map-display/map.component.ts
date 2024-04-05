@@ -1,18 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import * as mapboxgl from 'mapbox-gl';
 import { environment } from '../../../../environments/environment';
 import { IncidentsService } from "../../../services/incidents/incidents.service";
+import { Markers } from "../../../interfaces/markers";
+import { Marker } from "../../../interfaces/marker";
+import { MarkerComponent } from '../marker/marker.component';
+import {NgFor} from '@angular/common';
 
 @Component({
+  standalone: true,
   selector: 'app-map',
   templateUrl: './map.component.html',
-  styleUrls: ['./map.component.css']
+  styleUrls: ['./map.component.css'],
+  imports: [MarkerComponent],
 })
 
 export class MapComponent implements OnInit { 
+  markers?: Markers;
+  markerArray: Marker[] = [];
   map: mapboxgl.Map | undefined;
+  incidentsService: IncidentsService = inject(IncidentsService);
+
   
-  style = 'mapbox://styles/102560056/clumwz4op00gz01pw3jze5zy0';
+  // style = 'mapbox://styles/102560056/clumwz4op00gz01pw3jze5zy0';
   lat: number = -37.7983;
   lng: number = 144.9609;
   
@@ -25,7 +35,7 @@ export class MapComponent implements OnInit {
         // accessToken: environment.mapbox.accessToken, // I have no clue why this doesn't work
         accessToken: 'pk.eyJ1IjoiMTAyNTYwMDU2IiwiYSI6ImNsdWtwYzB6bDBxcW4yaWsyYXFnY3d0MjIifQ.KMav3MKT5-f5hSZoKPliFQ',
         container: 'map',
-        style: this.style,
+        // style: this.style,
         zoom: 2,
         center: [this.lng, this.lat],
         maxBounds: this.bounds,
@@ -41,5 +51,9 @@ export class MapComponent implements OnInit {
       );
       this.map.dragRotate.disable();
       this.map.touchZoomRotate.disableRotation();
+  }
+  constructor(){
+    this.markers = this.incidentsService.getAllIncidents();
+    this.markerArray = this.markers.features;
   }
 }
