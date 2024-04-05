@@ -1,10 +1,6 @@
 .container {
-    background-color: #156082;
+    background-color: #db2525;
     color: #fff;
-    padding: 2vw 0; 
-}
-
-.container {
     display: flex;
     justify-content: center;
     align-items: center;

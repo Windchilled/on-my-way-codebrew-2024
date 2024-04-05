@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as mapboxgl from 'mapbox-gl';
-import { environment } from '../../../environments/environment';
+import { environment } from '../../../../environments/environment';
+import { IncidentsService } from "../../../services/incidents/incidents.service";
 
 @Component({
   selector: 'app-map',
@@ -10,7 +11,8 @@ import { environment } from '../../../environments/environment';
 
 export class MapComponent implements OnInit { 
   map: mapboxgl.Map | undefined;
-  style = 'mapbox://styles/102560056/clum0icne00w901ra02lxh2ft';
+  
+  style = 'mapbox://styles/102560056/clumwz4op00gz01pw3jze5zy0';
   lat: number = -37.7983;
   lng: number = 144.9609;
   
@@ -20,7 +22,7 @@ export class MapComponent implements OnInit {
 
   ngOnInit() {
      this.map = new mapboxgl.Map({
-        // accessToken: environment.mapbox.accessToken,
+        // accessToken: environment.mapbox.accessToken, // I have no clue why this doesn't work
         accessToken: 'pk.eyJ1IjoiMTAyNTYwMDU2IiwiYSI6ImNsdWtwYzB6bDBxcW4yaWsyYXFnY3d0MjIifQ.KMav3MKT5-f5hSZoKPliFQ',
         container: 'map',
         style: this.style,
@@ -37,5 +39,7 @@ export class MapComponent implements OnInit {
             showUserHeading: true
         })
       );
+      this.map.dragRotate.disable();
+      this.map.touchZoomRotate.disableRotation();
   }
 }

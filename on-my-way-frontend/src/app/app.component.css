@@ -1,0 +1,40 @@
+.logo{
+    grid-area: logo;
+}
+.search{
+    grid-area: search;
+}
+.details{
+    grid-area: details;
+    height: 60vh;
+}
+.map{
+    grid-area: map;
+    height: 80vh;
+}
+.footer{
+    grid-area: footer;
+}
+.report{
+    grid-area: report;
+    height: 20vh;
+}
+
+.grid-container{
+    display: grid;
+    grid-template-areas: 
+    "logo search"
+    "details map"
+    "report map"
+    "footer footer";
+    grid-template-columns: 1fr 2fr;
+}
+
+:host{
+    height: 100%;
+}
+  
+
+.red-icon {
+    color: red;
+}
