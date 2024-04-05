@@ -43,4 +43,4 @@ def resolve():
     result = resolveIncident(_id)
     print(result)
 
-    return jsonify(result)
+    return jsonify("deleted")
