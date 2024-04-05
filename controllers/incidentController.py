@@ -10,7 +10,7 @@ from models.incident import *
 def runAddIncident(json_data):
     for i in json_data.values():
         if i == None:
-            return jsonify({'error': "A field contains missing data"}), 500
+            return jsonify({'error': "An incident field is missing"}), 500
         
     print(json_data['location'])
 
