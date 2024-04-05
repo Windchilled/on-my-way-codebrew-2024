@@ -13,12 +13,12 @@ collection = db['Incidents']
 def addIncident(location, x_coord, y_coord, post_time, desc, severity, emergency_service):
     new_incident = {
         "location" : location,
-        "x_coord" : x_coord,
-        "y_coord" : y_coord,
-        "datetime" : post_time,
+        "x-coord" : x_coord,
+        "y-coord" : y_coord,
+        "date-time" : post_time,
         "description" : desc,
         "severity" : severity,
-        "emergency_service" : emergency_service
+        "emergency-service" : emergency_service
     }
 
     collection.insert_one(new_incident)
