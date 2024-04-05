@@ -1,6 +1,8 @@
 import { Routes } from '@angular/router';
-import { MapComponent } from './componenets/map/map.component';
+import { NotFoundComponent } from './componenets/not-found/not-found.component';
+import { DefaultComponent } from './componenets/default/default.component';
 
 export const routes: Routes = [
-    {path: '', component: MapComponent}
+    {path: '', component: DefaultComponent},
+    {path: '**', component: NotFoundComponent}
 ];
