@@ -1,8 +1,11 @@
 .logo{
     grid-area: logo;
 }
+
 .search{
     grid-area: search;
+    height: 100%;
+    width: 100%;
 }
 .details{
     grid-area: details;
@@ -34,13 +37,6 @@
     height: 100%;
 }
   
-
 .red-icon {
     color: red;
 }
-
-#img{
-    width: 20vw;
-    height: auto;
-}
-
