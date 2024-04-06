@@ -27,21 +27,28 @@ def getIncidents():
     for eachIncident in collection.find({}, {}): 
         eachIncident['_id'] = str(eachIncident['_id'])
         data = {
-            type : "Feature",
+            "type" : "Feature",
             "geometry" : {
-                type : "Point",
+                "type" : "Point",
                 "coordinates" : eachIncident["coordinates"]
             } ,
             "properties" : {
                 "database_id" : eachIncident["_id"],
                 "severity" : eachIncident["severity"],
-                "dateTime" : eachIncident["dateTime"],
+                "dateTime" : eachIncident["date-time"],
                 "description" : eachIncident["description"]
             }
         }
         allIncidents.append(data)
+        
     #print(allIncidents)
-    return allIncidents
+    
+    return_data = {
+        "type" : "FeatureCollection",
+        "features" : allIncidents
+    }
+    
+    return return_data
 
 
 def getIncidentDetails(_id):
