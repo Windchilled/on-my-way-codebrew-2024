@@ -23,7 +23,7 @@
 .grid-container{
     display: grid;
     grid-template-areas: 
-    "search search"
+    "logo search"
     "details map"
     "report map"
     "footer footer";
@@ -39,7 +39,8 @@
     color: red;
 }
 
-.img{
-    width: 20%;
+#img{
+    width: 20vw;
     height: auto;
 }
+

@@ -1,11 +1,10 @@
 import { Component, OnInit, inject } from '@angular/core';
 import * as mapboxgl from 'mapbox-gl';
-import { environment } from '../../../../environments/environment';
+// import { environment } from '../../../../environments/environment';
 import { IncidentsService } from "../../../services/incidents/incidents.service";
 import { Markers } from "../../../interfaces/markers";
 import { Marker } from "../../../interfaces/marker";
 import { MarkerComponent } from '../marker/marker.component';
-import {NgFor} from '@angular/common';
 
 @Component({
   standalone: true,
@@ -22,7 +21,7 @@ export class MapComponent implements OnInit {
   incidentsService: IncidentsService = inject(IncidentsService);
 
   
-  // style = 'mapbox://styles/102560056/clumwz4op00gz01pw3jze5zy0';
+  style = 'mapbox://styles/102560056/clumwz4op00gz01pw3jze5zy0';
   lat: number = -37.7983;
   lng: number = 144.9609;
   

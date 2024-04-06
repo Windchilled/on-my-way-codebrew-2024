@@ -1,21 +1,14 @@
-img {
-    width: 27vw;
-    height: auto; 
-    margin-right: 5vw;
-    
-}
-
-.header{
-    display: flex;
-    align-items: center;
-    background-color: #E9212A;
-}
-
 .search-bar{
     padding: 1.25vw;
     border: 1px solid #ccc;
     border-radius: 0.5vw;
     width: 60vw; 
     font-size: larger;
-    
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #E9212A;
 }
