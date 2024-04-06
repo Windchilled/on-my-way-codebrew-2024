@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatIconModule } from "@angular/material/icon";
 import { Marker } from "../../../interfaces/marker";  
 
@@ -12,4 +12,8 @@ import { Marker } from "../../../interfaces/marker";
 })
 export class MarkerComponent {
   @Input() marker!: Marker;
+
+  ngOnInit(){
+    console.log(this.marker)
+  }
 }
