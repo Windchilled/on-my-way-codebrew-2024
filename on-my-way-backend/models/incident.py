@@ -10,15 +10,12 @@ db = client['OnMyWay']
 collection = db['Incidents']
 
 
-def addIncident(location, x_coord, y_coord, post_time, desc, severity, emergency_service):
+def addIncident(severity, lat, long, post_time, desc):
     new_incident = {
-        "location" : location,
-        "x-coord" : x_coord,
-        "y-coord" : y_coord,
+        "severity" : severity,
+        "coordinates" : [lat,long],
         "date-time" : post_time,
         "description" : desc,
-        "severity" : severity,
-        "emergency-service" : emergency_service
     }
 
     collection.insert_one(new_incident)
@@ -29,7 +26,20 @@ def getIncidents():
     allIncidents = []
     for eachIncident in collection.find({}, {}): 
         eachIncident['_id'] = str(eachIncident['_id'])
-        allIncidents.append(eachIncident)
+        data = {
+            type : "Feature",
+            "geometry" : {
+                type : "Point",
+                "coordinates" : eachIncident["coordinates"]
+            } ,
+            "properties" : {
+                "database_id" : eachIncident["_id"],
+                "severity" : eachIncident["severity"],
+                "dateTime" : eachIncident["dateTime"],
+                "description" : eachIncident["description"]
+            }
+        }
+        allIncidents.append(data)
     #print(allIncidents)
     return allIncidents
 

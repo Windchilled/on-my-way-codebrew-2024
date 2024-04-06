@@ -1,4 +1,5 @@
 import json
+import bson
 from dateutil import parser
 from flask import jsonify
 from datetime import datetime
@@ -13,16 +14,14 @@ def runAddIncident(json_data):
         if i == None:
             return jsonify({'error': "An incident field is missing"}), 500
         
-    print(json_data['location'])
     time_now = datetime.now()
     dt_string = time_now.strftime("%d/%m/%Y %H:%M:%S")
 
-    location_name = json_data['location']
-    x_coord = json_data['x-coord']
-    y_coord = json_data['y-coord']
-    post_time = dt_string
-    desc = json_data['description']
     severity = json_data['severity']
-    emergency_service = json_data['emergency-service']
-    addIncident(location_name, x_coord, y_coord, post_time, desc, severity, emergency_service)
+    latitude = json_data['latitude']
+    longitude = json_data['longitude']
+    dateTime = dt_string
+    desc = json_data['description']
+    
+    addIncident(severity,latitude,longitude,dateTime,desc)
     return json_data
