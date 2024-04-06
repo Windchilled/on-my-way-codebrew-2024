@@ -1,0 +1,50 @@
+.logo{
+    grid-area: logo;
+    display: flex;
+}
+
+.search{
+    grid-area: search;
+    height: 100%;
+    width: 100%;
+}
+.details{
+    grid-area: details;
+    height: 60vh;
+}
+.map{
+    grid-area: map;
+    height: 80vh;
+}
+.footer{
+    grid-area: footer;
+    height: 100%;
+    width: 100%;
+}
+.report{
+    grid-area: report;
+    height: 20vh;
+}
+
+.grid-container{
+    display: grid;
+    grid-template-areas: 
+    "logo search"
+    "details map"
+    "report map"
+    "footer footer";
+    grid-template-columns: 1fr 2fr;
+}
+
+:host{
+    height: 100%;
+}
+  
+.red-icon {
+    color: red;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
